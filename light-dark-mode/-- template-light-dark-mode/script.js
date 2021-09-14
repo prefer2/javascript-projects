@@ -6,6 +6,11 @@ const image2 = document.getElementById('image2');
 const image3 = document.getElementById('image3');
 const textBox = document.getElementById('text-box');
 
+const mode = {
+    DARK : 0,
+    LIGHT : 1
+}
+
 function imageMode(color){
     image1.src = `img/undraw_proud_coder_${color}.svg`;
     image2.src = `img/undraw_feeling_proud_${color}.svg`;
@@ -24,12 +29,12 @@ function switchTheme(e){
     if(e.target.checked){
         document.documentElement.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme', 'dark');
-        toggleDarkLightMode(false);
+        toggleDarkLightMode(mode.DARK);
     }
     else{
         document.documentElement.setAttribute('data-theme', 'light');
         localStorage.setItem('theme', 'light');
-        toggleDarkLightMode(true);
+        toggleDarkLightMode(mode.LIGHT);
     }
 }
 
@@ -43,6 +48,6 @@ if(currentTheme){
 
     if(currentTheme === 'dark'){
         toggleSwitch.checked = true;
-        toggleDarkLightMode(false);
+        toggleDarkLightMode(mode.DARK);
     }
 }
