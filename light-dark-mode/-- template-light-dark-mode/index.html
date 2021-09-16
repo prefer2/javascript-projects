@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Light Dark Mode</title>
-    <link rel="icon" type="image/png" href="favicon.png">
+    <title>About Me</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,7 +11,7 @@
     <div class="theme-switch-wrapper">
         <span id="toggle-icon">
             <span class="toggle-text">Light Mode</span>
-            <i class="fas fa-sun"></i>
+            <i class="fas fa-sun mode-icon"></i>
         </span>
         <label class="theme-switch">
             <input type="checkbox">
@@ -20,15 +19,15 @@
         </label>
     </div>
     <nav id="nav">
-        <a href="#home">HOME</a>
-        <a href="#about">ABOUT</a>
-        <a href="#projects">PROJECTS</a>
-        <a href="#contact">CONTACT</a>
+        <a href="#home" class="menu">HOME</a>
+        <a href="#about" class="menu">ABOUT</a>
+        <a href="#projects" class="menu">PROJECTS</a>
+        <a href="#contact" class="menu">CONTACT</a>
     </nav>
     <section id="home">
         <div class="title-group">
-            <h1>Custom Title here</h1>
-            <h2>Welcome to Webpage</h2>
+            <h1>SunHo Park</h1>
+            <h2><a href="#about">VIEW MORE</a></h2>
         </div>
     </section>
     <section id="about">
@@ -59,8 +58,9 @@
     </section>
     <section id="contact">
         <div class="social-icons">
-            <i class="fab fa-github"></i>
-            <i class="fab fa-instagram"></i>
+            <a href="https://github.com/prefer2"><i class="fab fa-github social"></i></a>
+            <a href="https://prefer2.tistory.com/"><i class="fas fa-blog social"></i></a>
+            <a href="https://www.instagram.com/sunhooooh/"><i class="fab fa-instagram social"></i></a>
         </div>
     </section>
     <!-- Script -->
