@@ -20,11 +20,11 @@
         <form class="form-example" onsubmit="event.preventDefault();savePost();" autocomplete="off">
             <div class="form-title">
               <label for="postTitle">TITLE: </label>
-              <input type="text" name="postTitle" id="postTitle" required>
+              <input type="text" name="postTitle" id="postTitle" maxlength="20" required oninput="countLength(20, this)">
             </div>
             <div class="form-writer">
                 <label for="postWriter">WRITER: </label>
-                <input type="text" name="postWriter" id="postWriter" required>
+                <input type="text" name="postWriter" id="postWriter" maxlength="8" required oninput="countLength(8, this)">
               </div>
             <div class="form-text">
               <textarea id="postText" placeHolder="write what you want" rows="10" required> </textarea>

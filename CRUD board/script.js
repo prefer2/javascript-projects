@@ -80,7 +80,6 @@ const readPost = (i) => {
     document.getElementById('readWriter').textContent = i.parentElement.children[1].textContent;
     document.getElementById('readText').textContent = i.parentElement.children[2].textContent;
     openRead();
-    console.log(i.parentElement.children[2]);
 }
 
 const resetForm = () => {
@@ -90,6 +89,12 @@ const resetForm = () => {
 }
 
 writeBtn.addEventListener('click', openModal);
+
+const countLength = (cnt, i) =>{
+    if(i.value.length>cnt){
+        alert(`제목의 길이는 최대 ${cnt}자 입니다!`);
+    }
+}
 
 
 /* close modal (X button/overlay) */
