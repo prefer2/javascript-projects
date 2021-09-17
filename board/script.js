@@ -33,13 +33,14 @@ const closeRead = () => {
 }
 
 const createLi = (title, writer, text, i) => {
-    const li = document.createElement("li");
-    li.setAttribute('id','textItem');
-    li.setAttribute('class',"text-item");
-    
-    li.innerHTML=`<div class="title" onclick="readPost(this)">${title}</div>
-    <div class="writer">${writer}</div> <div class="text" hidden>${text}</div>`
-    const btns = document.createElement("div");
+    const tr = document.createElement("tr");
+    tr.setAttribute('tr','textItem');
+    tr.setAttribute('class',"text-item");
+    let time = new Date();
+
+    tr.innerHTML=`<td class="title" onclick="readPost(this)">${title}</td>
+    <td class="writer">${writer}</td> <td class="text" hidden>${text}</td> <td>${time.getHours()}:${time.getMinutes()}</td>`
+    const btns = document.createElement("td");
     btns.innerHTML = `<button class="btn edit" id="editBtn" onClick="onEdit(this)">EDIT</button>
                     <button class="btn delete" id="deleteBtn" onClick="onDelete(this)">DELETE</button>`
     
@@ -47,8 +48,8 @@ const createLi = (title, writer, text, i) => {
         onDelete(i);
         check=-1;
     }
-    li.appendChild(btns);
-    document.getElementById('textList').appendChild(li);
+    tr.appendChild(btns);
+    document.getElementById('textList').appendChild(tr);
 }
 
 const onDelete = (i) => {   
@@ -56,10 +57,10 @@ const onDelete = (i) => {
 }
 
 const onEdit = (i) => {
-    const li = i.parentElement.parentElement;
-    document.getElementById('postTitle').value = li.children[0].textContent;
-    document.getElementById('postWriter').value = li.children[1].textContent;
-    document.getElementById('postText').value = li.children[2].textContent;
+    const tr = i.parentElement.parentElement;
+    document.getElementById('postTitle').value = tr.children[0].textContent;
+    document.getElementById('postWriter').value = tr.children[1].textContent;
+    document.getElementById('postText').value = tr.children[2].textContent;
 
     check = i;
     openModal();

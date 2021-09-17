@@ -49,6 +49,7 @@ body {
 
 .title {
   cursor: pointer;
+  width: 50%;
 }
 
 .title:hover {
