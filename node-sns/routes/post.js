@@ -59,4 +59,20 @@ router.post('/', isLoggedIn, upload2.none(), async (req, res, next) => {
   }
 });
 
+// 삭제
+router.route('/:id')
+  .delete(async(req, res, next) => {
+    try{
+      const result = await Post.destroy({ where: {id: req.params.id}});
+      if(result){
+        res.json(result);
+      } else {
+        res.status(404).send('no post to delete');
+      }
+    } catch(err){
+      console.log(err);
+      next(err);
+    }
+  });
+
 module.exports = router;

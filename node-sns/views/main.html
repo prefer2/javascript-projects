@@ -33,7 +33,7 @@
             {% if user.id === twit.User.id %}
             <button class="twit-delete">삭제</button>
             {% endif %}
-            {% if not followerIdList.includes(twit.User.id) and twit.User.id !== user.id %}
+            {% if user and not followerIdList.includes(twit.User.id) and twit.User.id !== user.id %}
               <button class="twit-follow">팔로우하기</button>
             {% endif %}
             <div class="twit-content">{{twit.content}}</div>
@@ -79,6 +79,24 @@
                   console.error(err);
                 });
             }
+          }
+        }
+      });
+    });
+
+    document.querySelectorAll('.twit-delete').forEach(function(tag) {
+      tag.addEventListener('click', function() {
+        if(confirm('삭제하시겠습니까?')){
+          const userId = tag.parentNode.querySelector('.twit-user-id').value;
+          const twitId = tag.parentNode.querySelector('.twit-id').value;
+          console.log(userId, twitId)
+          try{
+            axios.delete(`/post/${twitId}`)
+            .then(() => {
+              location.reload();
+            })
+          } catch(err){
+            console.log(err);
           }
         }
       });

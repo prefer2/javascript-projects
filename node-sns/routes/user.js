@@ -20,4 +20,19 @@ router.post('/:id/follow', isLoggedIn, async (req, res, next) => {
   }
 });
 
+// 닉네임 수정
+router.route('/edit')
+  .patch(async(req, res, next)=>{
+    try{
+      const result = await User.update({
+        nick: req.body.nick,
+      }, {
+        where: {id: req.user.id}
+      });
+      res.json(result);
+    } catch(err){
+      console.log(err);
+      next(err);
+    }
+  })
 module.exports = router;

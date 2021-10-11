@@ -54,6 +54,7 @@ textarea {
   float: left;
   width: 50%;
   margin: 10px 0;
+  height: 150px;
 }
 #join {
   float: right;
@@ -104,6 +105,7 @@ textarea {
   padding: 10px;
   background: lightcoral;
   overflow: hidden;
+  margin-bottom: 10px;
 }
 #img-preview {
   max-width: 100%;
@@ -169,6 +171,10 @@ textarea {
 .twit-img img {
   max-width: 75%;
 }
+.twit-content {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
 .error-message {
   color: red;
   font-weight: bold;
@@ -182,6 +188,7 @@ textarea {
 }
 #hashtag-form {
   text-align: right;
+  margin-bottom: 5px;
 }
 footer {
   text-align: center;

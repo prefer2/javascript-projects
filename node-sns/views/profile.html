@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <div class="timeline">
+    <div class="followings half">
+      <h2>팔로잉 목록</h2>
+      {% if user.Followings %}
+        {% for following in user.Followings %}
+          <div>{{following.nick}}</div>
+        {% endfor %}
+      {% endif %}
+    </div>
+    <div class="followers half">
+      <h2>팔로워 목록</h2>
+      {% if user.Followers %}
+        {% for follower in user.Followers %}
+          <div>{{follower.nick}}</div>
+        {% endfor %}
+      {% endif %}
+    </div>
+    <div class="edit-nickname">
+      <h2>닉네임 수정</h2>
+      <label for="edit-nick">수정 닉네임</label>
+      <input id="edit-nick" type="text" name="nick">
+      <button id="edit-btn" class="btn">수정</button>
+    </div>
+  </div>
+{% endblock %}
+
+{% block script %}
+  <script>
+    document.getElementById('edit-btn').addEventListener('click', ()=>{
+      if(confirm('닉네임을 수정하시겠습니까?')){
+        const changeNick = document.querySelector('#edit-nick').value;
+        console.log(changeNick);
+        try{
+            axios.patch(`/user/edit`, {nick: changeNick})
+            .then(() => {
+              location.reload();
+            })
+          } catch(err){
+            console.log(err);
+          }
+      }
+    })
+  </script>
+{% endblock %}
