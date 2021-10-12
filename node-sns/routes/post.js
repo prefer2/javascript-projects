@@ -63,6 +63,18 @@ router.post('/', isLoggedIn, upload2.none(), async (req, res, next) => {
 router.route('/:id')
   .delete(async(req, res, next) => {
     try{
+      // 이미지가 있디면 로컬에서 찾아서 삭제해줌
+      const checkImage = await Post.findOne({ where: {id: req.params.id}})
+      if(checkImage){
+        console.log(checkImage.img);
+        try {
+            fs.unlinkSync(`uploads/${checkImage.img.slice(5)}`)
+        } catch (err) {
+          if (err.code === "ENOENT") {
+            console.log("파일이 존재하지 않습니다.");
+          }
+        }
+      }
       const result = await Post.destroy({ where: {id: req.params.id}});
       if(result){
         res.json(result);
