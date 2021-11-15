@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="page">
+        <div class="frame">
+            <div class="header">
+                <span>점수: </span>
+                <span id="score">0</span>
+                <button class = "backbtn" onclick="backBtn()">뒤로가기</button>
+            </div>
+        
+            <table id="table"></table>
+            
+        </div>
+        <div class="score-board">
+            <div class="score-title">Score Board</div>
+            <ul id="scoreBoard"></ul>
+        </div>
+    </div>
+    <div id="modal" class="modal-back">
+        <div class="modal-window">
+            <a class="close-btn">X</a>
+            <div class="text">
+                <div>게임 끝!</div>
+                <div>점수: <span id="endScore"></span>점</div>
+            </div>
+            <button id="restart">RESTART</button>
+        </div>
+    </div>
+    
+    <script src="./2048.js"></script>
+</body>
+</html>
